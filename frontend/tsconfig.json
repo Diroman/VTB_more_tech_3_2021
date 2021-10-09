@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2020",
+    "jsx": "react",
+    "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "removeComments": true,
+    "skipLibCheck": true,
+    "lib": ["es6", "dom"],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "paths": {
+      "@app/*": ["app/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
