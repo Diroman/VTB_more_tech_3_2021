@@ -45,14 +45,14 @@ tableA.*
 
 ## Tables
 ```
+tables:  
+- tableA  
+- tableB  
 columns:  
 - tableA.col1  
 - tableB.col2  
 - sum(tableA.col3 * 12)  
 - count(*)  
-tables:  
-- tableA  
-- tableB  
 join:  
 - body:  
     source: tableA  
