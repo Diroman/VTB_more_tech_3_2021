@@ -64,7 +64,7 @@ filter:
 - body:  
     column: tableA.col5  
     op: Eq  
-    value: 1488  
+    value: 1500 
 group_by:  
 - tableA.col1  
 - tableB.col2  
