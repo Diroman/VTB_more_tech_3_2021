@@ -32,6 +32,7 @@ import FilterNoneIcon from '@mui/icons-material/FilterNone';
 import {RoutesPaths} from "../../../../../../common/enums/RoutesPaths";
 import smallLogo from "../../../../../../common/assets/smallLogo.png";
 import Constructor from "../../../Constructor/Constructor";
+import UserService from "../../../../../../services/UserService";
 
 const useStyles = makeStyles((theme: Theme) => ({
     toolbar: {
@@ -235,12 +236,16 @@ const PrimeSearchAppBar: React.FC = () => {
                 <Toolbar />
                 <Divider />
                 <List>
-                    <ListItem button key={'Личный кабинет'}>
-                        <ListItemIcon>
-                            <AccountCircleIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary={'Личный кабинет'} />
-                    </ListItem>
+                    {
+                        UserService.hasRole(['manager', 'admin']) ?
+                            <ListItem button key={'Личный кабинет'} component={Link} to={RoutesPaths.PERSONAL}>
+                                <ListItemIcon>
+                                    <AccountCircleIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary={'Личный кабинет'} />
+                            </ListItem> :
+                            null
+                    }
                     <ListItem button key={'База датасетов'} component={Link} to={RoutesPaths.DATABASE}>
                         <ListItemIcon>
                             <FilterNoneIcon/>
@@ -295,13 +300,6 @@ const PrimeSearchAppBar: React.FC = () => {
             {renderMenu}
             <main className={classes.content}>
 
-                {
-                    /*
-                       <Typography variant="h4" gutterBottom component="div" style={{ marginBottom: '40px'}}>
-                    Конструктор
-                </Typography>
-                     */
-                }
             <Constructor/>
 
             </main>

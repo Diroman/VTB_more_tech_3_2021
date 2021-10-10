@@ -11,6 +11,7 @@ import Rating from '@mui/material/Rating';
 import {Divider, Fade, Tooltip} from '@mui/material';
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import {useSnackbar} from "notistack";
+import {Link} from "react-router-dom";
 
 import imageSample from '../../../../../common/assets/images.jpeg';
 
@@ -26,11 +27,15 @@ const DataSetCard: React.FC<IDataSetComponent> = ({card}) => {
     }
 
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'column', width: '500px', height: '310px', marginBottom: '20px' }}>
+    <Card
+      component={Link}
+      to={`/database/${card.urn}`}
+      sx={{ display: 'flex', flexDirection: 'column', width: '500px', height: '310px', marginBottom: '20px', textDecoration: 'none' }}
+    >
           <CardContent style={{height: '255px'}} >
               <div style={{display: 'flex', flexDirection: 'row',
                   justifyContent: 'space-between', alignItems: 'start'}}>
-                  <div style={{display: 'flex', flexDirection: 'column'}}>
+                  <div style={{display: 'flex', flexDirection: 'column', height: '65px'}}>
                       <Typography variant="h5" noWrap>
                           {card.name}
                       </Typography>
@@ -118,7 +123,6 @@ const DataSetCard: React.FC<IDataSetComponent> = ({card}) => {
           </div>
 
         </CardActions>
-
     </Card>
   );
 }

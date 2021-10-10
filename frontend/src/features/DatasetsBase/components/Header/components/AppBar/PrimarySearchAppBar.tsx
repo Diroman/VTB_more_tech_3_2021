@@ -33,6 +33,7 @@ import {RoutesPaths} from "../../../../../../common/enums/RoutesPaths";
 import smallLogo from "../../../../../../common/assets/smallLogo.png";
 import DataBaseComponent from "../../../DataBase/components/DataBaseComponent/DataBaseComponent";
 import Cards from '../../../../../../features/Main/components/Cards/components/Cards';
+import UserService from "../../../../../../services/UserService";
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -237,12 +238,16 @@ const PrimeSearchAppBar: React.FC = () => {
                 <Toolbar />
                 <Divider />
                 <List>
-                    <ListItem button key={'Личный кабинет'}>
-                        <ListItemIcon>
-                            <AccountCircleIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary={'Личный кабинет'} />
-                    </ListItem>
+                    {
+                        UserService.hasRole(['manager', 'admin']) ?
+                            <ListItem button key={'Личный кабинет'} component={Link} to={RoutesPaths.PERSONAL}>
+                                <ListItemIcon>
+                                    <AccountCircleIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary={'Личный кабинет'} />
+                            </ListItem> :
+                            null
+                    }
                     <ListItem button key={'База датасетов'} component={Link} to={RoutesPaths.DATABASE}>
                         <ListItemIcon>
                             <FilterNoneIcon/>

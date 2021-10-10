@@ -13,10 +13,9 @@ import axios from "axios";
 import {ICard} from "../../../../Main/components/Cards/components/cards";
 import {useSnackbar} from "notistack";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import {RoutesPaths} from "../../../../../common/enums/RoutesPaths";
 import { Link } from 'react-router-dom';
 
-interface IResult {
+export interface IAllResult {
     count: number;
     dataset: ICard[];
     error: any;
@@ -43,7 +42,7 @@ const ChooseDataComponent = () => {
                         mode: 'no-cors',
                     }
                 }).then(res => {
-                    const result: IResult = res.data;
+                    const result: IAllResult = res.data;
                     const dataset = result.dataset;
                     setData(dataset);
                     setFilteredData(dataset);

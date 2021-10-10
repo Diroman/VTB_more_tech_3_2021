@@ -7,7 +7,7 @@ export const PageDatasetsBase: React.FC = () => {
     return (
         <div>
             <Helmet>
-                <title>Data Box - База датасетов</title>
+                <title>Datazilla - База датасетов</title>
             </Helmet>
             <PrimeSearchAppBar/>
         </div>
