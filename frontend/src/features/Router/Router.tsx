@@ -9,6 +9,8 @@ import ScrollToTop from '../Scroll/ScrollToTop';
 import {PageConstructor} from "../../pages/PageConstructor";
 import {PageConstructorDataSet} from "../../pages/PageConstructorDataSet";
 import {PageDatasetsBase} from "../../pages/PageDatasetsBase";
+import {PagePersonalAccount} from "../../pages/PagePersonalAccount";
+import {PageSingleDataset} from "../../pages/PageSingleDataset";
 
 
 export const Router: React.FC = () => (
@@ -33,6 +35,16 @@ export const Router: React.FC = () => (
             <Route
                 path={RoutesPaths.DATABASE}
                 component={PageDatasetsBase}
+                exact={true}
+            />
+            <Route
+                path={RoutesPaths.DATASETINFO}
+                component={PageSingleDataset}
+                exact={true}
+            />
+            <Route
+                path={RoutesPaths.PERSONAL}
+                component={PagePersonalAccount}
                 exact={true}
             />
             <Redirect to={RoutesPaths.MAIN}/>

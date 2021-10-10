@@ -7,7 +7,7 @@ export const PageMain: React.FC = () => {
   return (
     <div>
       <Helmet>
-        <title>Data Box - Главная страница</title>
+        <title>Datazilla - Главная страница</title>
       </Helmet>
       <PrimarySearchAppBar />
     </div>

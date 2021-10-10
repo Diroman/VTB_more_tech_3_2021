@@ -7,7 +7,7 @@ export const PageConstructor: React.FC = () => {
     return (
         <div>
             <Helmet>
-                <title>Data Box - Конструктор</title>
+                <title>Datazilla - Конструктор</title>
             </Helmet>
             <Constructor/>
         </div>

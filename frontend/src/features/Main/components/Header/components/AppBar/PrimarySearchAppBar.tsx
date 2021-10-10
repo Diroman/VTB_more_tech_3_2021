@@ -22,7 +22,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import SearchIcon from '@mui/icons-material/Search';
-import {InputBase, Paper, SvgIcon} from "@mui/material";
+import {Button, InputBase, Paper, SvgIcon} from "@mui/material";
 import Cards from "../../../Cards/components/Cards";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ConstructionIcon from '@mui/icons-material/Construction';
@@ -35,6 +35,7 @@ import FilterNoneIcon from '@mui/icons-material/FilterNone';
 import logoImage from '../../../../../../common/assets/logo.svg';
 import {RoutesPaths} from "../../../../../../common/enums/RoutesPaths";
 import smallLogo from '../../../../../../common/assets/smallLogo.png';
+import UserService from "../../../../../../services/UserService";
 
 const useStyles = makeStyles((theme: Theme) => ({
     toolbar: {
@@ -239,12 +240,17 @@ const PrimarySearchAppBar: React.FC = () => {
                 <Toolbar />
                 <Divider />
                 <List>
-                    <ListItem button key={'Личный кабинет'}>
-                        <ListItemIcon>
-                            <AccountCircleIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary={'Личный кабинет'} />
-                    </ListItem>
+                    {
+                        UserService.hasRole(['manager', 'admin']) ?
+                        <ListItem button key={'Личный кабинет'} component={Link} to={RoutesPaths.PERSONAL}>
+                            <ListItemIcon>
+                                <AccountCircleIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={'Личный кабинет'} />
+                        </ListItem> :
+                        null
+                    }
+
                     <ListItem button key={'База датасетов'} component={Link} to={RoutesPaths.DATABASE}>
                         <ListItemIcon>
                             <FilterNoneIcon/>
@@ -314,16 +320,20 @@ const PrimarySearchAppBar: React.FC = () => {
                         inputProps={{ 'aria-label': 'search datasets' }}
                     />
                 </Paper>
+                <Button onClick={() => UserService.doLogin()} >
+                    test
+                </Button>
 
-                <Typography variant="h4" gutterBottom component="div" style={{marginTop: '50px', marginBottom: '40px'}}>
+                <Typography variant="h4" gutterBottom component="div" style={{marginTop: '30px', marginBottom: '10px'}}>
                     Недавно просмотренные
                 </Typography>
 
-                <Cards size={2}/>
+                <Cards size={1}/>
 
-                <Typography variant="h4" gutterBottom component="div" style={{marginTop: '50px', marginBottom: '40px'}}>
+                <Typography variant="h4" gutterBottom component="div" style={{ marginBottom: '10px'}}>
                     Популярные
                 </Typography>
+
 
                 <Cards />
             </main>
