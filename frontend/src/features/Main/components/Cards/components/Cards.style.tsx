@@ -10,11 +10,9 @@ export const FlexDiv = styled.div`
   > div {
     box-sizing: border-box;
     margin: 30px 30px 0 0;
-
   }
   > div:nth-child(3n) {
     margin-right: 0;
-
   }
   ::after {
     content: '';

@@ -296,7 +296,14 @@ const PrimeSearchAppBar: React.FC = () => {
             </Drawer>
             {renderMenu}
             <main className={classes.content}>
-                <DataBaseComponent/>
+
+                <Typography variant="h4" gutterBottom component="div" style={{ marginBottom: '10px'}}>
+                    База датасетов
+                </Typography>
+
+
+                    <DataBaseComponent />
+
 
 
                 <Cards/>
