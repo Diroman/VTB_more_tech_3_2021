@@ -69,5 +69,5 @@ group_by:
 - tableA.col1  
 - tableB.col2  
 ```
-
+Видео ТУТ!!!!!!
 https://drive.google.com/file/d/1BCTHaV3ovr-OGXB-zh_AL7WvbMlBY0xd/view?usp=sharing
