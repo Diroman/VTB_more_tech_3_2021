@@ -21,9 +21,6 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import SearchIcon from '@mui/icons-material/Search';
-import {InputBase, Paper, SvgIcon} from "@mui/material";
-import Cards from "../../../Cards/components/Cards";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import StarsIcon from '@mui/icons-material/Stars';
@@ -32,9 +29,11 @@ import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import HelpIcon from '@mui/icons-material/Help';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import FilterNoneIcon from '@mui/icons-material/FilterNone';
-import logoImage from '../../../../../../common/assets/logo.svg';
 import {RoutesPaths} from "../../../../../../common/enums/RoutesPaths";
-import smallLogo from '../../../../../../common/assets/smallLogo.png';
+import smallLogo from "../../../../../../common/assets/smallLogo.png";
+import DataBaseComponent from "../../../DataBase/components/DataBaseComponent/DataBaseComponent";
+import Cards from '../../../../../../features/Main/components/Cards/components/Cards';
+
 
 const useStyles = makeStyles((theme: Theme) => ({
     toolbar: {
@@ -51,14 +50,13 @@ const useStyles = makeStyles((theme: Theme) => ({
         paddingTop: 100,
         display: "flex",
         flexDirection: "column",
-        alignItems: 'left',
     },
 }));
 
 
 const drawerWidth = 240;
 
-const PrimarySearchAppBar: React.FC = () => {
+const PrimeSearchAppBar: React.FC = () => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -172,7 +170,7 @@ const PrimarySearchAppBar: React.FC = () => {
                         sx={{ mr: 2 }}
                         component={Link} to={RoutesPaths.MAIN}
                     >
-                       <img src={smallLogo} alt={'small logo'} height={'40px'}/>
+                        <img src={smallLogo} alt={'small logo'} height={'40px'}/>
                     </IconButton>
                     <Typography
                         variant="h6"
@@ -298,37 +296,13 @@ const PrimarySearchAppBar: React.FC = () => {
             </Drawer>
             {renderMenu}
             <main className={classes.content}>
-                <img src={logoImage} alt={'Datazilla logo'} height={'160px'}/>
-                <Paper
-                    component="form"
-                    sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '45%' }}
-                    style={{alignSelf: 'center', marginTop: '20px', marginBottom: '20px'}}
-                >
-                    <IconButton sx={{ p: '10px' }} aria-label="menu">
-                        <SearchIcon />
-                    </IconButton>
+                <DataBaseComponent/>
 
-                    <InputBase
-                        sx={{ ml: 1, flex: 1 }}
-                        placeholder="Поиск..."
-                        inputProps={{ 'aria-label': 'search datasets' }}
-                    />
-                </Paper>
 
-                <Typography variant="h4" gutterBottom component="div" style={{marginTop: '50px', marginBottom: '40px'}}>
-                    Недавно просмотренные
-                </Typography>
-
-                <Cards size={2}/>
-
-                <Typography variant="h4" gutterBottom component="div" style={{marginTop: '50px', marginBottom: '40px'}}>
-                    Популярные
-                </Typography>
-
-                <Cards />
+                <Cards/>
             </main>
         </div>
     );
 }
 
-export default PrimarySearchAppBar;
+export default PrimeSearchAppBar;

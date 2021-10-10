@@ -242,7 +242,7 @@ const Constructor: React.FC = () => {
                         </ListItemIcon>
                         <ListItemText primary={'Личный кабинет'} />
                     </ListItem>
-                    <ListItem button key={'База датасетов'}>
+                    <ListItem button key={'База датасетов'} component={Link} to={RoutesPaths.DATABASE}>
                         <ListItemIcon>
                             <FilterNoneIcon/>
                         </ListItemIcon>

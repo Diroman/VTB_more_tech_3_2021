@@ -8,6 +8,7 @@ import { PageMain } from "../../pages/PageMain";
 import ScrollToTop from '../Scroll/ScrollToTop';
 import {PageConstructor} from "../../pages/PageConstructor";
 import {PageConstructorDataSet} from "../../pages/PageConstructorDataSet";
+import {PageDatasetsBase} from "../../pages/PageDatasetsBase";
 
 
 export const Router: React.FC = () => (
@@ -27,6 +28,11 @@ export const Router: React.FC = () => (
             <Route
                 path={RoutesPaths.CONSTRUCTORWITHID}
                 component={PageConstructorDataSet}
+                exact={true}
+            />
+            <Route
+                path={RoutesPaths.DATABASE}
+                component={PageDatasetsBase}
                 exact={true}
             />
             <Redirect to={RoutesPaths.MAIN}/>

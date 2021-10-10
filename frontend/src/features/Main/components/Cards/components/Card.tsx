@@ -12,9 +12,6 @@ import {Divider, Fade, Tooltip} from '@mui/material';
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import {useSnackbar} from "notistack";
 
-
-//import imageSample from '../../../../../common/assets/dataset-cover.png';
-
 import imageSample from '../../../../../common/assets/images.jpeg';
 
 interface IDataSetComponent {
@@ -29,8 +26,8 @@ const DataSetCard: React.FC<IDataSetComponent> = ({card}) => {
     }
 
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'column', width: '32%', height: '310px', marginBottom: '20px' }}>
-          <CardContent >
+    <Card sx={{ display: 'flex', flexDirection: 'column', width: '500px', height: '310px', marginBottom: '20px' }}>
+          <CardContent style={{height: '255px'}} >
               <div style={{display: 'flex', flexDirection: 'row',
                   justifyContent: 'space-between', alignItems: 'start'}}>
                   <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -39,6 +36,7 @@ const DataSetCard: React.FC<IDataSetComponent> = ({card}) => {
                       </Typography>
                       <div style={{display: 'flex', flexDirection: 'row'}}>
                           {
+
                               card && card.owners && card.owners.map((owner) => {
                                   return (
                                       <Typography style={{marginRight: '10px'}} component={"span"} variant="overline" color="text.secondary" fontWeight={600}>
